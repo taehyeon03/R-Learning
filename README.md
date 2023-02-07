@@ -195,7 +195,9 @@ adsp license learning~
     > [1] 1
     ```
 <br>
-- "|" & "&" 연산자
+
+
+#### "|" & "&" 연산자
   ``` R
   # |은 백터의 원소를 비교 ||은 백터의 첫번째 결과만 
   a=c(0,0,2,3)
@@ -228,10 +230,10 @@ adsp license learning~
   >[1] FALSE
   ```
   
-  ### 파일 입출력
   
+### 파일 입출력
   
-  R에서 다룰 수 있는 파일 타입
+#### R에서 다룰 수 있는 파일 타입
   - Tap-delimited text (tap으로 구분된 텍스트)
   - Comma-separated text (,로 구분된 텍스트)
   - Excel file 
@@ -243,7 +245,7 @@ adsp license learning~
   
   
   
-  출력할 자리수 정의
+#### 출력할 자리수 정의
   ```R
   # digits는 소수점 자리 표시
   print(pi,digits = 4)
@@ -259,7 +261,7 @@ adsp license learning~
   <br>
   
   
-  #### 파일 출력
+#### 파일 출력
   ```R
   sink("파일 이름")
   ~~~~~
@@ -275,18 +277,28 @@ adsp license learning~
   <br>
   
   
-  #### 파일 읽기
+#### 파일 읽기
+  
+  
   
   - 고정자리수 파일 읽기
     ```R
     read.fwf("file_path"width=c(간격),col.names(변수명 설정))
     ```
-  <br>
+    <br>
+  
+  
   - 테이블 데이터 일기
     ```R
       read.fwf("file_path"width=c(간격),col.names(변수명 설정))
     ```
-  주의사항<br>
+    <br>
+    
+    
+    
+   __주의사항__
+    
+    
   1. 주소,이름,성 등의 텍스트를 요인으로 인식 <br>
     - read.table("파일이름",sep="구분자",stringASFactor=F)
     <br>
@@ -302,52 +314,50 @@ adsp license learning~
     read.csv("파일이름",header=T)
     
     ```
-    주의사항<br>
+    __주의사항__<br>
     1. 주소,이름,성등의 텍스트를 요인으로 인식함
       - read.csv("파일이름",header=T,as.is=T)
   <br>  
   
-  
-  
-  - csv 출력
+- csv 출력
+
     ```R
     write.csv(행렬 또는 데이터 프레임,"파일이름",now.names=F)
     ```
-    주의사항<br>
-    1. 1행이 변수명으로 자동 인식하지만 변수명이 아닐 경우
-      - write.csv(dfm,"파일이름",col.names=F)
-    2. 1열에 레코드 번호를 자동 생성하지만 번호를 생성하지 않은 경우
-      - write.csv(dfm,"파일이름",row.names=F)
-  
-  <br>
-  
-  
-  - 웹에서 읽어오기
-    ```R
-    read.csv("http://~~~~~~~~~.csv")
-    read.table("http://~~~~~~~.txt")
-    ```
-  <br>
-  
-  
-  
-  - html을 읽어오기
-    ```R
-    library(XML)
-    "url<-"주소.html"
-    t<-readHTMLTable(url)
-    ```
-  
-  <br>
-  
-  
-  
-  - 복작한 구조의 파일 읽기
-    ```R
-    lines<-readLines("a.txt",n=num)
-    token<-scan("a.txt",what=numeric(0))
-    token<-scan("a.txt",what=list(v1=character(0),v2=njumeric(0)))
-    token<-scan("a.txt",what=list(v1=character(0),v2=numeric(0),n=num,nlines=num,skip=num,na.strings=list))
+    <br>
     
-    ```
+    
+  __주의사항__
+    1. 1행이 변수명으로 자동 인식하지만 변수명이 아닐 경우 <br>
+      - write.csv(dfm,"파일이름",col.names=F)
+    2. 1열에 레코드 번호를 자동 생성하지만 번호를 생성하지 않은 경우 <br>
+      - write.csv(dfm,"파일이름",row.names=F) <br>
+  
+  
+  
+- 웹에서 읽어오기
+  ```R
+  read.csv("http://~~~~~~~~~.csv")
+  read.table("http://~~~~~~~.txt")
+  ```
+  
+  
+  
+- html을 읽어오기
+  ```R
+  library(XML)
+  "url<-"주소.html"
+  t<-readHTMLTable(url)
+  ```
+  
+  <br>
+  
+  
+- 복작한 구조의 파일 읽기
+  ```R
+  lines<-readLines("a.txt",n=num)
+  token<-scan("a.txt",what=numeric(0))
+  token<-scan("a.txt",what=list(v1=character(0),v2=njumeric(0)))
+  token<-scan("a.txt",what=list(v1=character(0),v2=numeric(0),n=num,nlines=num,skip=num,na.strings=list))
+  ```
   
