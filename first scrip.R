@@ -95,3 +95,12 @@ cov(z,k) #공분산 두 변수의 길이가 같아야 한다.
 cor(z,k) #상관계수
 length(z)
 
+
+# 출력할 자릿수 정의
+# digits는 소수점 자리 표시
+print(pi,digits = 4)
+cat(format(pi,digits=4),'\n')
+#options는 나왔던 수들의 몇번쨰 자리에서 반올림(여러 자룔를 한번에 할떄 좋을 듯)
+i<-c(3.23423,23432.342)
+options(digits = 2)
+i
