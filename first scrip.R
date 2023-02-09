@@ -104,3 +104,101 @@ cat(format(pi,digits=4),'\n')
 i<-c(3.23423,23432.342)
 options(digits = 2)
 i
+
+#파일에 출력하기
+sink("파일 이름")
+~~~~~
+sink()#파일 저장
+
+v1=c(1,3,2,4)
+v2=c(3,4,3,5)
+v3=v1+v2
+v4=v1*v2
+cat("vector v1=(",v1,")","\n",file="파일이름")
+cat("vector v1=(",v2,")","\n",file="파일이름",append=T)
+
+#파일 목록보기
+list.files()
+list.files(recursive=T,all.files=T) #recursive 포더안의 모든 팡리 검색 TRUE
+
+#고정자리수 데이터 파일 읽기
+read.fwf("file_path"width=c(간격),col.names(변수명 설정))
+
+
+#테이블 파일 읽기
+read.table("file_name",sep = "구분자")
+
+
+b<-1:12
+dim(b)<-c(2,2,3)
+b
+
+v<-c(2,3,4)
+v<-c(v,1223,231)
+v
+
+v[length(v)+2]<-23,23
+v
+
+k<-c(1,2,3,4)
+append(k,NA,after=3)
+
+f<-factor(v,c(324,3241,1321,2321,23))
+f
+
+var1<-factor('a',c('a','b',"c"))
+var1
+
+a<-seq(from=1,to=12,by=2)
+a
+a[c(1,3,5)]
+a[-c(2,4)]
+
+x<-c(23,434)
+y<-c(234,234,654)
+z<-c(234,567,85)
+L<-list(x,y,z)
+L
+K<-list(first=234,second="한국",third=T);K
+
+L[[1]]
+L[c(1,2)]
+names(L)<-c("First","Second","Third")
+L[["First"]]
+L$Second
+
+L[["Third"]]<-NULL
+L
+
+L[sapply(L,is.null)]<-NULL
+L
+
+D<-matrix(1:10,2,5)
+
+dim(D)
+diag(c(1,2,3,4))
+
+D<-matrix(1:10,2,5)
+D
+t(D)
+
+m=matrix(1:4,2)
+m
+msolve<-solve(m)
+msolve
+m_diag<-m%*%(msolve)
+m_diag
+
+a=matrix(1:4,2)
+b=matrix(2:5,2)
+a
+b
+a_b=a+b
+a_b
+a%*%a
+m=matrix(1:4,2)
+m
+a<-m[1,]
+a
+a<-m[,2]
+a
