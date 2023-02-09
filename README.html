@@ -550,7 +550,10 @@ sum( x %in% y)
 &gt; [1] 1</code></pre>
 <p><br></p></li>
 </ul></li>
-<li><p>“|” &amp; “&amp;” 연산자</p>
+</ul>
+</div>
+<div id="연산자" class="section level4">
+<h4>“|” &amp; “&amp;” 연산자</h4>
 <pre class="r"><code># |은 백터의 원소를 비교 ||은 백터의 첫번째 결과만 
 a=c(0,0,2,3)
 b=c(0,1,1,4)
@@ -580,8 +583,12 @@ FALSE &amp; TRUE
 
 FALSE &amp; FALSE
 &gt;[1] FALSE</code></pre>
-<h3 id="파일-입출력">파일 입출력</h3>
-<p>R에서 다룰 수 있는 파일 타입</p>
+</div>
+</div>
+<div id="파일-입출력" class="section level3">
+<h3>파일 입출력</h3>
+<div id="r에서-다룰-수-있는-파일-타입" class="section level4">
+<h4>R에서 다룰 수 있는 파일 타입</h4>
 <ul>
 <li>Tap-delimited text (tap으로 구분된 텍스트)</li>
 <li>Comma-separated text (,로 구분된 텍스트)</li>
@@ -591,7 +598,9 @@ FALSE &amp; FALSE
 <li>Database</li>
 <li>statistical SW’s file <br></li>
 </ul>
-<p>출력할 자리수 정의</p>
+</div>
+<div id="출력할-자리수-정의" class="section level4">
+<h4>출력할 자리수 정의</h4>
 <pre class="r"><code># digits는 소수점 자리 표시
 print(pi,digits = 4)
 cat(format(pi,digits=4),&#39;\n&#39;)
@@ -603,7 +612,9 @@ options(digits = 2)
 i
 &gt; [1] 3.2 23432.3</code></pre>
 <p><br></p>
-<h4 id="파일-출력">파일 출력</h4>
+</div>
+<div id="파일-출력" class="section level4">
+<h4>파일 출력</h4>
 <pre class="r"><code>sink(&quot;파일 이름&quot;)
 ~~~~~
 sink()#파일 저장
@@ -615,37 +626,32 @@ v4=v1*v2
 cat(&quot;vector v1=(&quot;,v1,&quot;)&quot;,&quot;\n&quot;,file=&quot;파일이름&quot;)
 cat(&quot;vector v1=(&quot;,v2,&quot;)&quot;,&quot;\n&quot;,file=&quot;파일이름&quot;,append=T) # append는 내용을 추가가</code></pre>
 <p><br></p>
-<h4 id="파일-읽기">파일 읽기</h4>
+</div>
+<div id="파일-읽기" class="section level4">
+<h4>파일 읽기</h4>
 <ul>
-<li><p>고정자리수 파일 읽기</p>
-<pre class="r"><code>read.fwf(&quot;file_path&quot;width=c(간격),col.names(변수명 설정))</code></pre>
-<p><br></p></li>
-<li><p>테이블 데이터 일기</p>
-<pre class="r"><code>  read.fwf(&quot;file_path&quot;width=c(간격),col.names(변수명 설정))</code></pre>
-<p>주의사항<br></p></li>
+<li><p>고정자리수 파일 읽기
+<code>R     read.fwf(&quot;file_path&quot;width=c(간격),col.names(변수명 설정))</code>
+<br></p></li>
+<li><p>테이블 데이터 일기
+<code>R       read.fwf(&quot;file_path&quot;width=c(간격),col.names(변수명 설정))</code>
+<br></p></li>
 </ul>
+<p><strong>주의사항</strong></p>
 <ol style="list-style-type: decimal">
-<li>주소,이름,성 등의 텍스트를 요인으로 인식 <br></li>
+<li>주소,이름,성 등의 텍스트를 요인으로 인식 <br> -
+read.table(“파일이름”,sep=“구분자”,stringASFactor=F) <br></li>
+<li>결측치를 NA가 아닌 다른 문자열로 표현할때 <br> -
+read.table(“파일이름”,sep=“구분자”,na.strings=“.”) <br></li>
+<li>파일의 첫행을 변수명으로 인식하고자 할떄 <br> -
+read.table(“파일이름”,sep=“구분자”,header=T) <br> <br></li>
 </ol>
 <ul>
-<li>read.table(“파일이름”,sep=“구분자”,stringASFactor=F) <br></li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>결측치를 NA가 아닌 다른 문자열로 표현할때 <br></li>
-</ol>
-<ul>
-<li>read.table(“파일이름”,sep=“구분자”,na.strings=“.”) <br></li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>파일의 첫행을 변수명으로 인식하고자 할떄 <br></li>
-</ol>
-<ul>
-<li><p>read.table(“파일이름”,sep=“구분자”,header=T) <br> <br></p></li>
 <li><p>csv 읽기</p>
 <pre class="r"><code>#header == 첫행에 변수명이 있는가
 read.csv(&quot;파일이름&quot;,header=T)
 </code></pre>
-<p>주의사항<br></p>
+<p><strong>주의사항</strong><br></p>
 <ol style="list-style-type: decimal">
 <li>주소,이름,성등의 텍스트를 요인으로 인식함</li>
 </ol>
@@ -654,40 +660,27 @@ read.csv(&quot;파일이름&quot;,header=T)
 </ul></li>
 <li><p>csv 출력</p>
 <pre class="r"><code>write.csv(행렬 또는 데이터 프레임,&quot;파일이름&quot;,now.names=F)</code></pre>
-<p>주의사항<br></p>
-<ol style="list-style-type: decimal">
-<li>1행이 변수명으로 자동 인식하지만 변수명이 아닐 경우</li>
-</ol>
-<ul>
-<li>write.csv(dfm,“파일이름”,col.names=F)</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>1열에 레코드 번호를 자동 생성하지만 번호를 생성하지 않은 경우</li>
-</ol>
-<ul>
-<li>write.csv(dfm,“파일이름”,row.names=F)</li>
-</ul></li>
-</ul>
 <p><br></p>
-<ul>
+<p><strong>주의사항</strong></p>
+<ol style="list-style-type: decimal">
+<li>1행이 변수명으로 자동 인식하지만 변수명이 아닐 경우 <br> -
+write.csv(dfm,“파일이름”,col.names=F)</li>
+<li>1열에 레코드 번호를 자동 생성하지만 번호를 생성하지 않은 경우 <br> -
+write.csv(dfm,“파일이름”,row.names=F) <br></li>
+</ol></li>
 <li><p>웹에서 읽어오기</p>
 <pre class="r"><code>read.csv(&quot;http://~~~~~~~~~.csv&quot;)
-read.table(&quot;http://~~~~~~~.txt&quot;)</code></pre>
-<p><br></p></li>
+read.table(&quot;http://~~~~~~~.txt&quot;)</code></pre></li>
 <li><p>html을 읽어오기</p>
 <pre class="r"><code>library(XML)
 &quot;url&lt;-&quot;주소.html&quot;
-t&lt;-readHTMLTable(url)</code></pre></li>
-</ul>
-<p><br></p>
-<ul>
+t&lt;-readHTMLTable(url)</code></pre>
+<p><br></p></li>
 <li><p>복작한 구조의 파일 읽기</p>
 <pre class="r"><code>lines&lt;-readLines(&quot;a.txt&quot;,n=num)
 token&lt;-scan(&quot;a.txt&quot;,what=numeric(0))
 token&lt;-scan(&quot;a.txt&quot;,what=list(v1=character(0),v2=njumeric(0)))
-token&lt;-scan(&quot;a.txt&quot;,what=list(v1=character(0),v2=numeric(0),n=num,nlines=num,skip=num,na.strings=list))
-</code></pre></li>
-</ul></li>
+token&lt;-scan(&quot;a.txt&quot;,what=list(v1=character(0),v2=numeric(0),n=num,nlines=num,skip=num,na.strings=list))</code></pre></li>
 </ul>
 </div>
 </div>
